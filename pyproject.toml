@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trace-waste"
+version = "0.1.0"
+description = "Audit agent run traces for wasted tokens: repeated tool calls, redundant reasoning, unused tool results and context."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Gang Ji" }]
+keywords = ["agents", "traces", "tokens", "llm", "evals", "cost"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.scripts]
+trace-waste = "trace_waste.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
